@@ -1,5 +1,5 @@
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-var write = require("./writeMp3File.js");
+// var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+// var write = require("./writeMp3File.js");
 
 let source = "en"
 let target = "zh-TW"
