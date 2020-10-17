@@ -7,7 +7,8 @@ let text = "dog"
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange=function() {
     if (this.readyState == 4 && this.status == 200) {
-        console.log(JSON.parse(this.responseText)[0][0][0]);
+        let translation = JSON.parse(this.responseText)[0][0][0]
+        console.log(translation);
         var xhp = new XMLHttpRequest();
         xhp.open("POST", "https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyCLObUOnRO9nJ3iIkBbshgFUY8Hm0bMYPA", true);
         xhp.onreadystatechange=function() {
@@ -22,7 +23,7 @@ xhr.onreadystatechange=function() {
         }
         xhp.send(JSON.stringify({
             "input": {
-                "text": JSON.parse(this.responseText)[0][0][0]
+                "text": translation
             },
             "voice": {
                 "languageCode": target,
