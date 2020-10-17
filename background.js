@@ -3,11 +3,13 @@
 
 let source = "en"
 let target = "zh-TW"
-let text = "dog"
+let rate = 1.0
+let gender = "NEUTRAL"
+let text = "this is a dog. that is a cat."
 var xhr = new XMLHttpRequest();
-xhr.onreadystatechange=function() {
+xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        let translation = JSON.parse(this.responseText)[0][0][0]
+        let translation = JSON.parse(this.responseText)[0].reduce((acc,curr) => acc + curr[0],"")
         console.log(translation);
         var xhp = new XMLHttpRequest();
         xhp.open("POST", "https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyCLObUOnRO9nJ3iIkBbshgFUY8Hm0bMYPA", true);
@@ -23,14 +25,15 @@ xhr.onreadystatechange=function() {
         }
         xhp.send(JSON.stringify({
             "input": {
-                "text": translation
+                "ssml": translation.replaceAll(/(。+|\.+)/g, "<break strength=\"weak\"/>")
             },
             "voice": {
                 "languageCode": target,
-                "ssmlGender": "NEUTRAL"
+                "ssmlGender": gender
             },
             "audioConfig": {
-                "audioEncoding": "MP3"
+                "audioEncoding": "MP3",
+                "speakingRate": rate
             }
         }));
     }
