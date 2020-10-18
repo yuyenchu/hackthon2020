@@ -23,6 +23,8 @@ function speak(text){
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             let translation = JSON.parse(this.responseText)[0].reduce((acc,curr) => acc + curr[0],"")
+            translations[text] = translation;
+            console.log(translations);
             console.log(translation);
             var xhp = new XMLHttpRequest();
             xhp.open("POST", "https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyCLObUOnRO9nJ3iIkBbshgFUY8Hm0bMYPA", true);

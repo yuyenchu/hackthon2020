@@ -1,0 +1,16 @@
+{
+  "name": "Translator",
+  "version": "1.0",
+  "description": "This extension will output translated speech of a selected word.",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "content_scripts":[{
+    "matches" : ["<all_urls>"],
+    "js": ["extension.js"]
+  }],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon":  "icon.png"
+  },
+
+  "manifest_version": 2
+}
