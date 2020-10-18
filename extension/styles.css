@@ -34,7 +34,7 @@ h1 {
 .svg {
   width: 10px;
   height: auto;
-  margin-left:70px;
+  margin-left: 1.3em;
 }
 
 img {
@@ -42,7 +42,8 @@ img {
 }
 
 i {
-  margin-right: 10px;
+  margin-right: -1px;
+  margin-left: 1px;
 }
 
 .language {
