@@ -12,13 +12,33 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>Translator</h1>
-    <div>
-        <label class="switch">
-            <input id="onOff" type="checkbox" checked>
-            <span class="slider round"></span>
-          </label>
-    </div>
+    <main>
+      <h1>Translator</h1>
+      <div>
+          <label class="switch">
+              <input id="onOff" type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+      </div>
+      <p>Double click on any word in your window to hear its translation in the language
+        of your choosing.
+      </p>
+      <div class="language">
+        <p>Select Language:</p>
+        <div class="dropdown">
+          <button class="dropbtn">
+              <i class="fas fa-globe-americas"> </i>
+              <p class="id" id="selectLanguage">English </p>
+              <img class="svg end" src=./down-arrow.svg> </img>
+          </button>
+          <div class="dropdown-content">
+            <button><img src=./icon.png>Mandarin Chinese</button>
+            <button><img src=./icon.png>Japanese</button>
+            <button><img src=./icon.png>Spanish</button>
+          </div>
+        </div>
+      </div>
+   </main>
     <!--
     <div class="dropdown">
       <button class="dropbtn">
@@ -34,25 +54,6 @@
       </div>
     </div>
     -->
-    <p>Double click on any word in your window to hear its translation in the language
-      of your choosing.
-    </p>
-    <div class="language">
-      <p>Select Language:</p>
-      <div class="dropdown">
-        <button class="dropbtn">
-            <i class="fas fa-globe-americas"> </i>
-            <p class="id" id="selectLanguage">English </p>
-            <img class="svg end" src=./down-arrow.svg> </img>
-        </button>
-        <div class="dropdown-content">
-          <button><img src=./icon.png>Mandarin Chinese</button>
-          <button><img src=./icon.png>Japanese</button>
-          <button><img src=./icon.png>Spanish</button>
-        </div>
-      </div>
-    </div>
-
     <script src="popup.js"></script>
   </body>
 </html>
