@@ -7,6 +7,10 @@ function saveChanges(text) {
     });
 }
 
+function strToBool(str) {
+    return (str == 'true')
+}
+
 $(document).ready(function () {
     if (localStorage.getItem('mydata')) {
         $('#selectLanguage').text(localStorage.mydata);
@@ -14,18 +18,27 @@ $(document).ready(function () {
         localStorage.setItem('mydata', $('#selectLanguage').text());
     }
 
+    if (localStorage.getItem('onOff')) {
+        $('#onOff').prop('checked',strToBool(localStorage.getItem('onOff')));
+    } else {
+        localStorage.setItem('onOff', true);
+    }
+
     $('button').click(function () {
+        console.log("test")
         if ($(this).attr('id') !== "select") {
             saveChanges($(this).text());
         }
     });
 
     $('#onOff').click(function() {
-        if ($(this).value == 'On') {
-                $(this).value = 'Off';
-        } else {
-            $(this).value = 'On';
-        }
+        $(this).prop('checked',!$(this).prop('checked'));
+        console.log($(this).prop('checked'))
+        localStorage.setItem('onOff', $(this).prop('checked'));
+        chrome.storage.sync.set({
+            'onOff': strToBool(localStorage.getItem('onOff'))
+        }, function () {
+        });
     })
 
 });

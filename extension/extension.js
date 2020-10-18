@@ -1,5 +1,6 @@
 var lang = "English";
 var isSelecting = false;
+var isOn = true;
 
 $(document).ready(function () {
     chrome.storage.sync.get(['value'], function (result) {
@@ -7,16 +8,25 @@ $(document).ready(function () {
             lang=result.value;
         }
     });
+    chrome.storage.sync.get(['onOff'], function (result) {
+        if(result){
+            isOn=result.value;
+        }
+    });
     chrome.storage.onChanged.addListener(function (changes, namespace) {
         for (key in changes) {
             var storageChange = changes[key];
-            lang = storageChange.newValue;
-            // console.log('Storage key "%s" in namespace "%s" changed. ' +
-            //     'Old value was "%s", new value is "%s".',
-            //     key,
-            //     namespace,
-            //     storageChange.oldValue,
-            //     storageChange.newValue);
+            if (key==="value") {
+                lang = storageChange.newValue;
+            } else {
+                isOn = storageChange.newValue;
+            }
+            console.log('Storage key "%s" in namespace "%s" changed. ' +
+                'Old value was "%s", new value is "%s".',
+                key,
+                namespace,
+                storageChange.oldValue,
+                storageChange.newValue);
         }
     });
 });
@@ -90,14 +100,14 @@ function speak(text){
 
 var f = function(){
     let text = window.getSelection().toString().trim();
-    if (text != "" && isRunning()) {
+    if (text != "" && isOn) {
         speak(text);
     }
 }
 
-function isRunning() {
-    return document.getElementById('onOff') == 'On';
-}
+// function isRunning() {
+//     return document.getElementById('onOff').checked === true;
+// }
 
 var stopAll = function() {
     audioList.forEach((ele)=>{
