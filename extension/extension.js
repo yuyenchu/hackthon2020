@@ -1,11 +1,11 @@
-var lang = "English";
 var isSelecting = false;
 var isOn = true;
+var target = "en"
 
 $(document).ready(function () {
-    chrome.storage.sync.get(['value'], function (result) {
+    chrome.storage.sync.get(['target'], function (result) {
         if(result){
-            lang=result.value;
+            target=result.target;
         }
     });
     chrome.storage.sync.get(['onOff'], function (result) {
@@ -16,8 +16,8 @@ $(document).ready(function () {
     chrome.storage.onChanged.addListener(function (changes, namespace) {
         for (key in changes) {
             var storageChange = changes[key];
-            if (key==="value") {
-                lang = storageChange.newValue;
+            if (key==="target") {
+                target = storageChange.newValue;
             } else {
                 isOn = storageChange.newValue;
             }
@@ -37,9 +37,7 @@ $(document).ready(function () {
             var allText = rawFile.responseText;
             var lines = allText.split('\n');
             for(var line = 0; line < lines.length; line++){
-                console.log(lines[line].split("\t"));
-                map[lines[line].split("\t")[0]]=lines[line].split("\t")[1]
-                $("#dropdown-content").append('<button><img src=./icon.png>'+lines[line].split("\t")[0]+'</button>')
+                $("#dropdown-content").append('<button id="'+lines[line].split("\t")[0]+'" name="'+lines[line].split("\t")[1]+'"><img src=./icon.png>'+lines[line].split("\t")[0]+'</button>')
             }
         }
     }
@@ -58,14 +56,13 @@ Array.prototype.remove = function() {
     return this;
 };
 
-var map = {}
+
 const corsUrl = "https://cors-anywhere.herokuapp.com/";
 var audioList = [];
 
 function speak(text){
-    console.log("lang = "+lang)
+    console.log(target)
     let source = "en"
-    let target = map[lang]
     let rate = 1.0
     let gender = "NEUTRAL"
     var xhr = new XMLHttpRequest()
