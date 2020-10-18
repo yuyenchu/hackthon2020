@@ -48,7 +48,8 @@ function speak(text){
             let translation = JSON.parse(this.responseText)[0].reduce((acc,curr) => acc + curr[0],"")
             console.log(translation);
             var xhp = new XMLHttpRequest()
-            xhp.open("POST", corsUrl+"https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyCLObUOnRO9nJ3iIkBbshgFUY8Hm0bMYPA", true);
+            let key = "AIzaSyCJlRQgW9Yc0Wkkmit6umSfyOXNO2OD-z8"
+            xhp.open("POST", corsUrl+"https://texttospeech.googleapis.com/v1/text:synthesize?key=" + key, true);
             xhp.onreadystatechange=function() {
                 if (this.readyState == 4 && this.status == 200) {
                     let content = JSON.parse(this.responseText)["audioContent"]
@@ -89,10 +90,13 @@ function speak(text){
 
 var f = function(){
     let text = window.getSelection().toString().trim();
-    if (text != "") {
-        
+    if (text != "" && isRunning()) {
         speak(text);
     }
+}
+
+function isRunning() {
+    return document.getElementById('onOff') == 'On';
 }
 
 var stopAll = function() {

@@ -15,9 +15,17 @@ $(document).ready(function () {
     }
 
     $('button').click(function () {
-        if ($(this).attr('id') !== "select"){
+        if ($(this).attr('id') !== "select") {
             saveChanges($(this).text());
         }
     });
+
+    $('#onOff').click(function() {
+        if ($(this).value == 'On') {
+                $(this).value = 'Off';
+        } else {
+            $(this).value = 'On';
+        }
+    })
 
 });
