@@ -1,10 +1,14 @@
 // var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 // var write = require("./writeMp3File.js");
 
-f=function(){
+f = function(){
     speak(window.getSelection().toString());
 }
-document.body.addEventListener('dblclick',f);
+// document.body.addEventListener('dblclick',f);
+
+chrome.tabs.executeScript( {
+    code: "document.body.addEventListener('dblclick',f);"
+});
 
 function speak(text){
     let source = "en"
