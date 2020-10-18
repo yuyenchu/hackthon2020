@@ -1,6 +1,7 @@
+var target = "zh-TW";
+
 function speak(text){
     let source = "en"
-    let target = "zh-TW"
     let rate = 1.0
     let gender = "NEUTRAL"
     var xhr = new XMLHttpRequest()
@@ -46,3 +47,11 @@ var f = function(){
 }
 document.addEventListener('dblclick',f);
 document.addEventListener('mouseup',f);
+
+function changeTargetLanguage(language) {
+    target = language;
+}
+
+document.getElementById("zh-TW").onclick = changeTargetLanguage("zh-TW");
+document.getElementById("ja").onclick = changeTargetLanguage("ja");
+document.getElementById("es").onclick = changeTargetLanguage("es");
