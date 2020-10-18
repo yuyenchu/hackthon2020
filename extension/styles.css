@@ -13,26 +13,59 @@ h1 {
   margin-bottom: 10px;
 }
 
-p {
+/* p {
   margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
   font-size: 15px;
+} */
+
+.id {
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  text-align: left;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  display: inline-block;
+  margin-left: 10px;
 }
 
-.dropbtn {
-  background-color: #CDC9C3;
-  color: #555555;
-  font-family: "Domine", serif;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
+.svg {
+  width: 10px;
+  height: auto;
+  margin-left:70px;
+}
+
+img {
+  margin-right: 10px;
+}
+
+i {
+  margin-right: 10px;
 }
 
 .language {
   display: flex;
   align-items: center;
 }
+
+/*big select box*/
+.dropbtn { 
+  width:200px;
+  /*box itself*/
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 3px 2px rgba(60,60,60,0.2);
+  /*text*/
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  padding: 10px;
+  font-size: 13px;
+  margin-right: 15px; 
+  text-align: left;
+  border: none;
+} 
 
 .dropdown {
   position: relative;
@@ -42,32 +75,51 @@ p {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
-  min-width: 146px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  margin-bottom: 10px;
+  border: none;
 }
 
+/*sub dropdown box*/
 .dropdown-content button {
-  background-color: #e9e7e7;
+  /*box itself*/
+  border-radius: 4px;
+  width:200px;
+  margin-right: 15px;
+  background-color: #FFFFFF;
   color: #555555;
   font-family: 'Roboto', sans-serif;
-  padding: 12px 10px;
+  padding: 10px;
   text-decoration: none;
+  text-align: left;
   display: block;
-  width: 146px;
   border: 0px;
+  border: none;
+}
+@keyframes gliding {
+  from {opacity: 0.5;}
+  to {opacity: 1.0;}
 }
 
 .dropdown-content button:hover {
+  width:200px;
+  animation-name: gliding;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
   background-color: #c7c5c5;
+  border: none;
 }
 
 .dropdown:hover .dropdown-content {
+  animation-duration: 20s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
   display: block;
+  border: none;
 }
 
+
+
 .dropdown:hover .dropbtn {
-  background-color: #a3a1a1;
+  background-color: #c7c5c5;
+  border: none;
 }
