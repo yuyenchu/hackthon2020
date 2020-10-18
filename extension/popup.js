@@ -1,33 +1,21 @@
-function saveChanges() {
-    if ($('#myonoffswitch').is(':checked')) {
-        localStorage.mydata = 'y';
-    } else {
-        localStorage.mydata = 'n';
-    }
+function saveChanges(text) {
+    localStorage.setItem('mydata', text);
+    $('#selectLanguage').text(localStorage.getItem('mydata'));
     chrome.storage.sync.set({
         'value': localStorage.mydata
     }, function () {
-
     });
 }
 
 $(document).ready(function () {
     if (localStorage.getItem('mydata')) {
-        if (localStorage.mydata == 'n') {
-            $('myonoffswitch').attr('checked', false);
-        } else {
-            $('myonoffswitch').attr('checked', true);
-        }
+        $('#selectLanguage').text(localStorage.mydata);
     } else {
-        if ($('#myonoffswitch').is(':checked')) {
-            localStorage.setItem('mydata', 'y');
-        } else {
-            localStorage.setItem('mydata', 'n');
-        }
+        localStorage.setItem('mydata', $('#selectLanguage').text());
     }
 
-    $('#myonoffswitch').click(function () {
-        saveChanges();
+    $('button').click(function () {
+        saveChanges($(this).text());
     });
 
 });
