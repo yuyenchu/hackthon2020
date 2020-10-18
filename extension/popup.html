@@ -8,7 +8,6 @@
     <script src="extension.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/542f9ba16d.js" crossorigin="anonymous"></script>
-    <script src="popup.js"></script>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -40,11 +39,15 @@
     <div class="language">
       <p>Select Language:</p>
       <div class="dropdown">
-        <button id="dropbtn"><p id="selectLanguage">English</p></button>
+        <button class="dropbtn">
+            <i class="fas fa-globe-americas"> </i>
+            <p class="id" id="selectLanguage">English </p>
+            <img class="svg end" src=./down-arrow.svg> </img>
+        </button>
         <div class="dropdown-content">
-          <button>Mandarin Chinese</button>
-          <button>Japanese</button>
-          <button>Spanish</button>
+          <button><img src=./icon.png>Mandarin Chinese</button>
+          <button><img src=./icon.png>Japanese</button>
+          <button><img src=./icon.png>Spanish</button>
         </div>
       </div>
     </div>
