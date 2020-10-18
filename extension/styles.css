@@ -4,20 +4,21 @@ body {
   background-color: #FBF7F0;
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
-  margin-left: 30px;
-  margin-right: 20px;
 }
 
 h1 {
   font-family: "Domine", serif;
   color: #555555;
+  margin-left: 20px;
   margin-bottom: 10px;
 }
 
-p {
+/* p {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   font-size: 15px;
-}
+} */
 
 .id {
   color: #000000;
@@ -54,7 +55,7 @@ img {
 }
 
 i {
-  margin-right: 5px;
+  margin-right: -1px;
   margin-left: 1px;
 }
 
@@ -80,7 +81,6 @@ i {
   padding: 10px;
   font-size: 13px;
   margin-right: 15px;
-  margin-left: 15px;
   text-align: left;
   border: none;
 }
@@ -95,16 +95,14 @@ i {
   position: absolute;
   z-index: 1;
   border: none;
-  margin-bottom: 20px;
 }
 
 /*sub dropdown box*/
 .dropdown-content button {
   /*box itself*/
   border-radius: 4px;
-  width: 200px;
+  width:200px;
   margin-right: 15px;
-  margin-left: 15px;
   background-color: #FFFFFF;
   color: #555555;
   font-family: 'Roboto', sans-serif;
@@ -115,7 +113,6 @@ i {
   border: 0px;
   border: none;
 }
-
 @keyframes gliding {
   from {opacity: 0.5;}
   to {opacity: 1.0;}
@@ -138,17 +135,20 @@ i {
   border: none;
 }
 
+
+
 .dropdown:hover .dropbtn {
   background-color: #c7c5c5;
   border: none;
 }
+
 
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
-}
+  }
 
   .switch input {
     opacity: 0;

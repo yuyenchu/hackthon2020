@@ -29,6 +29,22 @@ $(document).ready(function () {
                 storageChange.newValue);
         }
     });
+
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", "languages.txt", false);
+    rawFile.onreadystatechange = function (){
+        if(rawFile.readyState === 4 &&(rawFile.status === 200 || rawFile.status == 0)){
+            var allText = rawFile.responseText;
+            var lines = allText.split('\n');
+            for(var line = 0; line < lines.length; line++){
+                console.log(lines[line].split("\t"));
+                map[lines[line].split("\t")[0]]=lines[line].split("\t")[1]
+                $("#dropdown-content").append('<button><img src=./icon.png>'+lines[line].split("\t")[0]+'</button>')
+            }
+        }
+    }
+    rawFile.send(null);
+
 });
 
 Array.prototype.remove = function() {
@@ -42,7 +58,7 @@ Array.prototype.remove = function() {
     return this;
 };
 
-const map = {"English":"en","Mandarin Chinese":"zh-TW","Japanese":"ja","Spanish":"es"}
+var map = {}
 const corsUrl = "https://cors-anywhere.herokuapp.com/";
 var audioList = [];
 
