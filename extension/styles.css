@@ -20,7 +20,7 @@ p {
   font-size: 15px;
 }
 
-.dropbtn {
+#dropbtn {
   background-color: #CDC9C3;
   color: #555555;
   font-family: "Domine", serif;
@@ -32,6 +32,10 @@ p {
 .language {
   display: flex;
   align-items: center;
+}
+
+#selectLanguage {
+  margin: 0px;
 }
 
 .dropdown {
