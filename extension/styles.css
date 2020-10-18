@@ -37,6 +37,10 @@ h1 {
   margin-left: 1.3em;
 }
 
+.end {
+  float: right;
+}
+
 img {
   margin-right: 10px;
 }
