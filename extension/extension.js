@@ -1,6 +1,9 @@
 var lang = "English";
 
 $(document).ready(function () {
+    chrome.storage.sync.get(['value'], function (result) {
+        lang=result.value;
+    });
     chrome.storage.onChanged.addListener(function (changes, namespace) {
         for (key in changes) {
             var storageChange = changes[key];
