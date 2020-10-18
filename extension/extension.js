@@ -1,6 +1,29 @@
+var lang = "English";
+
+$(document).ready(function () {
+    chrome.storage.sync.get(['value'], function (result) {
+        lang=result.value;
+    });
+    chrome.storage.onChanged.addListener(function (changes, namespace) {
+        for (key in changes) {
+            var storageChange = changes[key];
+            lang = storageChange.newValue;
+            // console.log('Storage key "%s" in namespace "%s" changed. ' +
+            //     'Old value was "%s", new value is "%s".',
+            //     key,
+            //     namespace,
+            //     storageChange.oldValue,
+            //     storageChange.newValue);
+        }
+    });
+});
+
+const map = {"English":"en","Mandarin Chinese":"zh-TW","Japanese":"ja","Spanish":"es"}
+
 function speak(text){
+    console.log("lang = "+lang)
     let source = "en"
-    let target = "zh-TW"
+    let target = map[lang]
     let rate = 1.0
     let gender = "NEUTRAL"
     var xhr = new XMLHttpRequest()
@@ -44,5 +67,4 @@ var f = function(){
         speak(text);
     }
 }
-document.addEventListener('dblclick',f);
 document.addEventListener('mouseup',f);
