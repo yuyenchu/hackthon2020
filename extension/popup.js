@@ -2,7 +2,7 @@ function saveChanges(text) {
     localStorage.setItem('mydata', text);
     $('#selectLanguage').text(localStorage.getItem('mydata'));
     chrome.storage.sync.set({
-        'value': localStorage.mydata
+        'value': localStorage.getItem('mydata')
     }, function () {
     });
 }
