@@ -1,8 +1,11 @@
 var lang = "English";
+var isSelecting = false;
 
 $(document).ready(function () {
     chrome.storage.sync.get(['value'], function (result) {
-        lang=result.value;
+        if(result){
+            lang=result.value;
+        }
     });
     chrome.storage.onChanged.addListener(function (changes, namespace) {
         for (key in changes) {
@@ -67,4 +70,8 @@ var f = function(){
         speak(text);
     }
 }
-document.addEventListener('mouseup',f);
+document.addEventListener('mousedown',()=>isSelecting=true);
+document.addEventListener('mouseup',()=>{
+    if (isSelecting) f()
+    isSelecting = false
+});

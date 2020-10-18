@@ -15,7 +15,9 @@ $(document).ready(function () {
     }
 
     $('button').click(function () {
-        saveChanges($(this).text());
+        if ($(this).attr('id') !== "select"){
+            saveChanges($(this).text());
+        }
     });
 
 });
