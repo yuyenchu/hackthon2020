@@ -1,0 +1,24 @@
+{
+  "name": "hackthon2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "background.js",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuyenchu/hackthon2020.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuyenchu/hackthon2020/issues"
+  },
+  "homepage": "https://github.com/yuyenchu/hackthon2020#readme"
+}

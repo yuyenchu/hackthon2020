@@ -5,7 +5,7 @@
   "permissions": ["activeTab", "declarativeContent", "storage"],
   "content_scripts":[{
     "matches" : ["<all_urls>"],
-    "js": ["extension.js"]
+    "js": ["jquery.min.js","popup.js","extension.js"]
   }],
   "browser_action": {
     "default_popup": "popup.html",
