@@ -1,10 +1,17 @@
 // var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 // var write = require("./writeMp3File.js");
 
+var translations = new Map();
+
 f=function(){
-    speak(window.getSelection().toString());
+    let text = window.getSelection().toString().trim();
+    if (text != "") {
+        speak(text);
+    }
 }
-document.body.addEventListener('dblclick',f);
+
+document.body.addEventListener('mouseup',f);
+
 
 function speak(text){
     let source = "en"
