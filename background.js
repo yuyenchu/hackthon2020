@@ -1,14 +1,17 @@
 // var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 // var write = require("./writeMp3File.js");
 
-f = function(){
-    speak(window.getSelection().toString());
-}
-// document.body.addEventListener('dblclick',f);
+var translations = new Map();
 
-chrome.tabs.executeScript( {
-    code: "document.body.addEventListener('dblclick',f);"
-});
+f=function(){
+    let text = window.getSelection().toString().trim();
+    if (text != "") {
+        speak(text);
+    }
+}
+
+document.body.addEventListener('mouseup',f);
+
 
 function speak(text){
     let source = "en"
@@ -20,6 +23,8 @@ function speak(text){
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             let translation = JSON.parse(this.responseText)[0].reduce((acc,curr) => acc + curr[0],"")
+            translations[text] = translation;
+            console.log(translations);
             console.log(translation);
             var xhp = new XMLHttpRequest();
             xhp.open("POST", "https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyCLObUOnRO9nJ3iIkBbshgFUY8Hm0bMYPA", true);
