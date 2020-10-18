@@ -11,6 +11,6 @@
     "default_popup": "popup.html",
     "default_icon":  "icon.png"
   },
-
+  "content_security_policy": "script-src 'self' https://kit.fontawesome.com/542f9ba16d.js; object-src 'self'",
   "manifest_version": 2
 }

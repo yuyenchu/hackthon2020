@@ -5,6 +5,7 @@
   "main": "background.js",
   "dependencies": {
     "jquery": "^3.5.1",
+    "tailwindcss": "^1.9.4",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {},
