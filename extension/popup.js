@@ -21,6 +21,7 @@ $(document).ready(function () {
     });
 
     $('#onOff').click(function() {
+        console.log('turning on/off')
         if ($(this).value == 'On') {
                 $(this).value = 'Off';
         } else {
