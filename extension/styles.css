@@ -6,19 +6,21 @@ body {
   flex-direction: column;
 }
 
+main {
+  margin-top: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
 h1 {
   font-family: "Domine", serif;
   color: #555555;
-  margin-left: 20px;
   margin-bottom: 10px;
 }
 
-/* p {
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
+p {
   font-size: 15px;
-} */
+}
 
 .id {
   color: #000000;
@@ -88,6 +90,7 @@ i {
 .dropdown {
   position: relative;
   display: inline-block;
+  margin-left: 20px;
 }
 
 .dropdown-content {
@@ -95,6 +98,8 @@ i {
   position: absolute;
   z-index: 1;
   border: none;
+  max-height: 150px;
+  overflow-y: auto;
 }
 
 /*sub dropdown box*/
