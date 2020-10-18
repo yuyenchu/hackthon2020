@@ -1,8 +1,8 @@
-function saveChanges(text) {
+function saveChanges(text, abbr) {
     localStorage.setItem('mydata', text);
     $('#selectLanguage').text(localStorage.getItem('mydata'));
     chrome.storage.sync.set({
-        'value': localStorage.getItem('mydata')
+        'target': abbr
     }, function () {
     });
 }
@@ -27,7 +27,7 @@ $(document).ready(function () {
     $('button').click(function () {
         console.log("test")
         if ($(this).attr('id') !== "select") {
-            saveChanges($(this).text());
+            saveChanges($(this).text(),$(this).attr("name"));
         }
     });
 
