@@ -64,14 +64,4 @@ var f = function(){
         speak(text);
     }
 }
-document.addEventListener('dblclick',f);
 document.addEventListener('mouseup',f);
-
-function changeTargetLanguage(language) {
-    target = language;
-    console.log("changed language to " + language);
-}
-
-document.getElementById("zh-TW").onclick = window.onloadchangeTargetLanguage("zh-TW");
-document.getElementById("ja").onclick = changeTargetLanguage("ja");
-document.getElementById("es").onclick = changeTargetLanguage("es");
