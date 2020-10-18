@@ -10,7 +10,7 @@ $(document).ready(function () {
     });
     chrome.storage.sync.get(['onOff'], function (result) {
         if(result){
-            isOn=result.value;
+            isOn=result.onOff;
         }
     });
     chrome.storage.onChanged.addListener(function (changes, namespace) {
