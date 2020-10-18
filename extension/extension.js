@@ -72,7 +72,8 @@ function speak(text){
             console.log(translation);
             var xhp = new XMLHttpRequest()
             let key = "AIzaSyCJlRQgW9Yc0Wkkmit6umSfyOXNO2OD-z8"
-            xhp.open("POST", corsUrl+"https://texttospeech.googleapis.com/v1/text:synthesize?key=" + key, true);
+            // xhp.open("POST", corsUrl+"https://texttospeech.googleapis.com/v1/text:synthesize?key=" + key, true);
+            xhp.open("POST", "https://texttospeech.googleapis.com/v1/text:synthesize?key=" + key, true);
             xhp.onreadystatechange=function() {
                 if (this.readyState == 4 && this.status == 200) {
                     let content = JSON.parse(this.responseText)["audioContent"]
@@ -94,7 +95,7 @@ function speak(text){
             }
             xhp.send(JSON.stringify({
                 "input": {
-                    "ssml": translation.replaceAll(/(。+|\.+)/g, "<break strength=\"weak\"/>")
+                    "ssml": "<speak>"+translation.replaceAll(/(。+|\.+)/g, "<break strength=\"weak\"/>")+"</speak>"
                 },
                 "voice": {
                     "languageCode": target,
@@ -107,7 +108,8 @@ function speak(text){
             }));
         }
     };
-    xhr.open("POST", `${corsUrl}https://translate.googleapis.com/translate_a/single?client=gtx&sl=${source}&tl=${target}&dt=t&q=${text}`, true);
+    // xhr.open("POST", `${corsUrl}https://translate.googleapis.com/translate_a/single?client=gtx&sl=${source}&tl=${target}&dt=t&q=${text}`, true);
+    xhr.open("POST", `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${source}&tl=${target}&dt=t&q=${text}`, true);
     xhr.send();
 }
 
