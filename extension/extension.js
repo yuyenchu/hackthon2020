@@ -37,7 +37,9 @@ $(document).ready(function () {
             var allText = rawFile.responseText;
             var lines = allText.split('\n');
             for(var line = 0; line < lines.length; line++){
-                $("#dropdown-content").append('<button id="'+lines[line].split("\t")[0]+'" name="'+lines[line].split("\t")[1]+'"><img src=./icon.png>'+lines[line].split("\t")[0]+'</button>')
+                let l = lines[line].split("\t")[0].trim();
+                let lc = lines[line].split("\t")[1].trim();
+                $("#dropdown-content").append('<button id="'+ l +'" name="'+ lc +'"><img src=./icon.png>'+ l+'</button>')
             }
         }
     }
@@ -114,7 +116,7 @@ function speak(text){
 }
 
 var f = function(){
-    let text = window.getSelection().toString().trim();
+    let text = window.getSelection().toString();
     if (text != "" && isOn) {
         speak(text);
     }
